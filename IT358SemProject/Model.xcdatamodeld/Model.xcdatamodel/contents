@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
+    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="course" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emailID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phNo" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="university" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="owns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Property" inverseName="ownedBy" inverseEntity="Property" syncable="YES"/>
+    </entity>
+    <entity name="Property" representedClassName="Property" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="university" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="imagesBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PropertyImages" inverseName="imagesOf" inverseEntity="PropertyImages" syncable="YES"/>
+        <relationship name="ownedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="owns" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="PropertyImages" representedClassName="PropertyImages" syncable="YES" codeGenerationType="class">
+        <attribute name="images" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="propertyName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="imagesOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Property" inverseName="imagesBy" inverseEntity="Property" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Property" positionX="-278.88671875" positionY="48.3984375" width="128" height="150"/>
+        <element name="PropertyImages" positionX="-36" positionY="81" width="128" height="90"/>
+        <element name="Entity" positionX="-153" positionY="72" width="128" height="43"/>
+    </elements>
+</model>
